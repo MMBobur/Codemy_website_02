@@ -1,0 +1,41 @@
+.video_view{
+    background-color: rgb(151, 179, 190);
+    color: #3c4b64;
+}
+
+.video_text{
+    width: 85%;
+}
+
+.video_table{
+    color: #3c4b64;
+}
+
+.table_header{
+    font-size: 20px;
+    color: #3c4b64;
+}
+
+.edit_icon{
+    color: white;
+    font-size: larger;
+    background-color: green;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.del_icon{
+    color: white;
+    font-size: larger;
+    background-color: red;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}

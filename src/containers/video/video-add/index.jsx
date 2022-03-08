@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate, useLocation } from "react-router";
+import { useNavigate } from "react-router";
 import { Button, Form } from "react-bootstrap";
 
 const VideoAdd = () => {
@@ -18,11 +18,7 @@ const VideoAdd = () => {
     formData.append("file", ImageURL);
     formData.append("title", Title);
     formData.append("Url", VideoURL);
-    const config = {
-      header: {
-        "content-type": "multipart/form-data",
-      },
-    };
+    
 
     axios
       .post("http://localhost:8080/api/videos", formData)

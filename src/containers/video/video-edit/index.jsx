@@ -28,26 +28,20 @@ const VideoEdit = () => {
     formData.append("file", ImageURL);
     formData.append("title", Title);
     formData.append("Url", VideoURL);
-    const config = {
-      header: {
-        "content-type": "multipart/form-data",
-      },
-    };
+    
 
-      axios
-        .put(`http://localhost:8080/api/videos/${state}`, formData)
-        .then((resp) => {
-          alert("Product successfully Updated!!!");
-          navigate("/video", { replace: true });
-          setTitle("");
-          setImageURL("");
-          setDescription("");
-          setVideoURL("");
-        })
-        .catch((err) => console.log(err));
-    } 
-
-
+    axios
+      .put(`http://localhost:8080/api/videos/${state}`, formData)
+      .then((resp) => {
+        alert("Product successfully Updated!!!");
+        navigate("/video", { replace: true });
+        setTitle("");
+        setImageURL("");
+        setDescription("");
+        setVideoURL("");
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div>

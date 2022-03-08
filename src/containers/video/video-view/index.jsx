@@ -14,12 +14,11 @@ const VdeoView = () => {
   };
 
   useEffect(() => {
-    fetchVideo()
+    fetchVideo();
   }, []);
 
-  const fetchVideo=()=>{
-    axios.get("http://localhost:8080/api/videos")
-    .then((resp) => {
+  const fetchVideo = () => {
+    axios.get("http://localhost:8080/api/videos").then((resp) => {
       const filteredData = resp.data.map((item) => ({
         id: item.id,
         title: item.title,
@@ -27,16 +26,20 @@ const VdeoView = () => {
         text: item.text,
         url: item.Url,
       }));
-      console.log("Filtered data", filteredData);
+
       setVideoData(filteredData);
-    })
-    }
+    });
+  };
   const Delete = (id) => {
-    axios.delete(`http://localhost:8080/api/videos/${id}`)
-    .then((res) => {
-      fetchVideo()
-    })
-    .catch((err) => {});
+    var ask = window.confirm("Are you sure?");
+    if (ask == true) {
+      axios
+        .delete(`http://localhost:8080/api/videos/${id}`)
+        .then((res) => {
+          fetchVideo();
+        })
+        .catch((err) => {});
+    }
   };
 
   return (
@@ -72,7 +75,10 @@ const VdeoView = () => {
               <tr key={key}>
                 <td>{data.id}</td>
                 <td>
-                  <video style={{ maxWidth: 100 }} src={data.Url}></video>
+                  <video style={{ maxWidth: 120, height: 100 }} controls>
+                    <source src={data.Url} type="video" />
+                    Your browser does not support the html video tag.
+                  </video>
                 </td>
                 <td>
                   <img

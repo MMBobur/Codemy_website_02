@@ -19,7 +19,9 @@ function Index() {
     axios
       .delete(`http://localhost:8080/api/carousel/${id}`)
       .then((resp) => {
+        alert("Ocirasizmi")
         if (resp.status === 200) {
+
           setLoading(!loading);
         }
       })

@@ -2,8 +2,8 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import { Button, Form } from "react-bootstrap";
-
-const VideoEdit = () => {
+import { Link } from "react-router-dom";
+const CoruselEdit = () => {
   const {id} = useParams();
   const navigate = useNavigate();
 
@@ -78,10 +78,17 @@ const VideoEdit = () => {
           >
             Edit
           </Button>
+          <Link to="/corusel">
+          <Button
+            style={{ backgroundColor: "#3c4b64", border: "#3c4b64",marginLeft:'50px' }}
+          >
+            Cancel
+          </Button>
+          </Link>
         </Form>
       </div>
     </div>
   );
 };
 
-export default VideoEdit;
+export default CoruselEdit;

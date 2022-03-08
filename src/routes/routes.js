@@ -116,7 +116,7 @@ export const routes = [
         element: <CoruselView />,
       },
       {
-        path: "/corusel/edit",
+        path: "/corusel/edit/:id",
         element: <CoruselEdit />,
       },
       {

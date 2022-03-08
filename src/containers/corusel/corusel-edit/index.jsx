@@ -15,6 +15,10 @@ const CoruselEdit = () => {
       setImageURL(res.data.img_url);
       setTitle(res.data.title);
     });
+    return () => {
+      setImageURL(undefined)
+      setTitle("")
+  };
   }, []);
 
   const Submit = (e) => {

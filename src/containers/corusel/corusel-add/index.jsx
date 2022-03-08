@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router";
 import { Button, Form } from "react-bootstrap";
-
+import { Link } from 'react-router-dom'
 const VideoAdd = () => {
 
   const navigate = useNavigate();
@@ -71,6 +71,13 @@ const VideoAdd = () => {
         >
           Add
         </Button>
+        <Link to="/corusel">
+          <Button
+            style={{ backgroundColor: "#3c4b64", border: "#3c4b64",marginLeft:'50px' }}
+          >
+            Cancel
+          </Button>
+          </Link>
       </Form>
     </div>
   );

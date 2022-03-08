@@ -16,16 +16,18 @@ function Index() {
   }, [loading]);
 
   const deleteItem = (id) => {
-    axios
-      .delete(`http://localhost:8080/api/carousel/${id}`)
-      .then((resp) => {
-        alert("Ocirasizmi")
-        if (resp.status === 200) {
+    let a = window.confirm("O'chirmoqchimisiz");
 
-          setLoading(!loading);
-        }
-      })
-      .catch((err) => console.log(err));
+    if (a === true) {
+      axios
+        .delete(`http://localhost:8080/api/carousel/${id}`)
+        .then((resp) => {
+          if (resp.status === 200) {
+            setLoading(!loading);
+          }
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   return (

@@ -80,7 +80,7 @@ export const routes = [
         element: <AboutView />,
       },
       {
-        path: "/about/edit",
+        path: "/about/edit/:id",
         element: <AboutEdit />,
       },
       {

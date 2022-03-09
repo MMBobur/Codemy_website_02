@@ -1,3 +1,4 @@
+
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router";
@@ -28,26 +29,24 @@ const VideoEdit = () => {
     formData.append("file", ImageURL);
     formData.append("title", Title);
     formData.append("Url", VideoURL);
-    const config = {
-      header: {
-        "content-type": "multipart/form-data",
-      },
-    };
+    
 
-      axios
-        .put(`http://localhost:8080/api/videos/${state}`, formData)
-        .then((resp) => {
-          alert("Product successfully Updated!!!");
-          navigate("/video", { replace: true });
-          setTitle("");
-          setImageURL("");
-          setDescription("");
-          setVideoURL("");
-        })
-        .catch((err) => console.log(err));
-    } 
-
-
+    var confirm = window.confirm("Are you sure?")
+      if (confirm==true) {
+        axios
+      .put(`http://localhost:8080/api/videos/${state}`, formData)
+      .then((resp) => {
+        alert("Product successfully Updated!!!");
+        navigate("/video");
+        setTitle("");
+        setImageURL("");
+        setDescription("");
+        setVideoURL("");
+      })
+      } else{
+        navigate("/video");
+      }
+  };
 
   return (
     <div>

@@ -1,7 +1,11 @@
-import React from "react";
+import React from 'react'
 
 const AforizmlarEdit = () => {
-  return <div>AforizmlarEdit</div>;
-};
+  return (
+    <div>
+      
+    </div>
+  )
+}
 
-export default AforizmlarEdit;
+export default AforizmlarEdit

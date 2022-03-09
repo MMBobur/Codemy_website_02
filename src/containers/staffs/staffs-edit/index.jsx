@@ -1,7 +1,14 @@
-import React from "react";
+import { Routes, Route } from "react-router-dom"
 
-const StaffsEdit = () => {
-  return <div>StaffsEdit</div>;
-};
+import Home from './home'
+import Single from './single'
+
+function StaffsEdit() {
+  return (
+    <div className="App">
+      <Home/>
+    </div>
+  );
+}
 
 export default StaffsEdit;

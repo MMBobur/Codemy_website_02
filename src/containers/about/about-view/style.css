@@ -1,0 +1,35 @@
+/* Link Font Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.about-container{
+    width: 100%;
+    background-color: #F4F7FE;
+}
+.about-container-block{
+    width: 95% !important;
+    background-color: #fff;
+}
+.img-for-about{
+    visibility: hidden;
+}
+.label-for-img{
+    box-shadow: inset 0 0 5px 2px rgba(0,0,0,.3);
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+
+.about-delete-page {
+    width: 50% !important;
+    position: absolute;
+    top: 15% !important;
+    left: 40% !important;
+    background-color: rgb(219, 217, 217);
+    box-shadow:  0 0 5px 2px rgba(0,0,0,.3);
+}

@@ -67,7 +67,7 @@ const AboutView = () => {
                       </h5>
                       <div className="d-flex align-items-center justify-content-center">
                         <button
-                          onClick={() => DeleteOff}
+                          onClick={() => DeleteOff()}
                           className="bnt btn-success mx-2 border-0 border rounded-3 p-1 px-3"
                         >
                           No

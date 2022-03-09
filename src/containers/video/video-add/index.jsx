@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 import { Button, Form } from "react-bootstrap";
 
 const VideoAdd = () => {
@@ -18,11 +19,9 @@ const VideoAdd = () => {
     formData.append("file", ImageURL);
     formData.append("title", Title);
     formData.append("Url", VideoURL);
-    
 
     var confirm= window.confirm("Are you sure?")
       if (confirm==true) {
-        axios
       .post("http://localhost:8080/api/videos", formData)
       .then((resp) => {
         alert("Product successfully Created!!!");
@@ -32,10 +31,7 @@ const VideoAdd = () => {
         setVideoURL("");
         navigate("/video");
       })
-      }else{
-        navigate("/video");
-
-      }
+      .catch((err) => console.log(err));
   };
 
   return (

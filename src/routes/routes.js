@@ -30,6 +30,7 @@ import KurslarAdd from "../containers/kurslar/kurslar-add/index.jsx";
 
 import StaffsView from "../containers/staffs/staffs-view/index.jsx";
 import StaffsEdit from "../containers/staffs/staffs-edit/index.jsx";
+import Single from '../containers/staffs/staffs-edit/single/index'
 import StaffsAdd from "../containers/staffs/staffs-add/index.jsx";
 
 import VideoView from "../containers/video/video-view/index.jsx";
@@ -80,7 +81,7 @@ export const routes = [
         element: <AboutView />,
       },
       {
-        path: "/about/edit",
+        path: "/about/edit/:id",
         element: <AboutEdit />,
       },
       {
@@ -116,7 +117,7 @@ export const routes = [
         element: <CoruselView />,
       },
       {
-        path: "/corusel/edit",
+        path: "/corusel/edit/:id",
         element: <CoruselEdit />,
       },
       {
@@ -197,4 +198,18 @@ export const routes = [
       },
     ],
   },
+  {
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <StaffsEdit />,
+      },
+      {
+        path: "/staffs/edit/one/:id",
+        element: <Single />,
+      },
+    ],
+  },
+
 ];

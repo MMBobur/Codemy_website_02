@@ -14,7 +14,6 @@ const VdeoView = () => {
       if (confirm==true) {
         navigate("/video/edit", { state: id });
       }
-    
   };
 
   useEffect(() => {
@@ -23,6 +22,7 @@ const VdeoView = () => {
 
   const fetchVideo = () => {
     axios.get("http://localhost:8080/api/videos").then((resp) => {
+
       const filteredData = resp.data.map((item) => ({
         id: item.id,
         title: item.title,
@@ -30,7 +30,6 @@ const VdeoView = () => {
         text: item.text,
         url: item.Url,
       }));
-
       setVideoData(filteredData);
     });
   };

@@ -1,3 +1,55 @@
-.bir{
+.staff{
+    width: 300px;
+    font-size: 20px;
+    border: none;
+    background-color: #0024C0;
+    color: white;
+    margin-top: 20px;
+    margin-left: 35%;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 3px solid #0024C0;
+}
+
+.staff:hover{
+    background-color: white;
+    border: 3px solid #0024C0;
+    color: #0024C0;
+}
+
+.staff1{
+    width: 90%;
+    margin: auto;
+}
+
+.staff3{
+    border: 2px solid #0024C0;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.staff4{
     text-align: center;
+}
+
+.staff41{
+    border: 2px solid #0024C0;
+}
+
+.staff5{
+    width: 70px;
+    height: 60px;
+    margin: 10px 0px;
+}
+
+.staff6{
+    border: 2px solid #0024C0;
+    font-size: 20px;
+}
+
+.staff61{
+    border: 2px solid #0024C0;
+    font-size: 20px;
+    width: 100px;
 }

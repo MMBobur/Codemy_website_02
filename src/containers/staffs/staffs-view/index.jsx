@@ -1,56 +1,74 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { GrEdit } from "react-icons/gr";
+import { Link } from "react-router-dom";
 import axios from "axios";
-import {Row, Col, Table} from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
-import { FaEdit } from 'react-icons/fa';
-import { AiFillDelete } from 'react-icons/ai';
-import {Link} from 'react-router-dom'
-import '../staffs-add/style.css'
-const StaffsView = () => {
-  const [aboutData, setAboutData] = useState([]);
+import './styles.css'
 
+function Index() {
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:8080/api/about")
-    .then((res) => {
-      setAboutData(aboutData);
+    axios.get("http://localhost:8080/api/staff/").then((res) => {
+      setData(res.data);
       console.log(res.data);
-    })
-  }, [])
+    });
+  }, [loading]);
+
+  const deleteItem = (id) => {
+    let a = window.confirm("O'chirmoqchimisiz");
+
+    if (a === true) {
+      axios
+        .delete(`http://localhost:8080/api/staff/${id}`)
+        .then((resp) => {
+          if (resp.status === 200) {
+            setLoading(!loading);
+          }
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+
 
   return (
-    <div>
-      <div className="tort1">
-        <Link to='/staffs/add' className="tort">Add</Link>
-      </div>
-      <Table striped bordered hover style={{marginLeft: 40, marginRight: 1000, width: 1150}}>
-        <thead>
-          <tr>
-            <th style={{textAlign: "center"}}>#</th>
-            <th>Img</th>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Email</th>
-            <th>Experience</th>
-            <th>Edit</th>
-            <th>Delete</th>
+    <div className="staffs">
+      {" "} <Link to="/staffs/add" className="staf"><button className="staff">Add</button></Link>{" "}
+      <table className="staff1"> 
+        <tr className="staff2">
+          <th className="staff3">Image</th>
+          <th className="staff3">Name</th>
+          <th className="staff3">Username</th>
+          <th className="staff3">Email</th>
+          <th className="staff3">Experience</th>
+          <th className="staff3">Edit</th>
+          <th className="staff3">Delete</th>
+        </tr>
+        {data.map((value, index) => (
+          <tr key={index} className="staff4">
+            <td className="staff41">{" "}
+              <img src={value.img_url} alt="" className="staff5"/>{" "}</td>
+            <td className="staff6">{value.name}</td>
+            <td className="staff6">{value.surname}</td>
+            <td className="staff6">{value.email}</td>
+            <td className="staff6">
+               {value.experience} 
+            </td>
+            <td className="staff61">
+              <Link to={`/staffs/edit/${value.id}`} className="staff8">
+                <GrEdit className="staff10"/>
+              </Link>
+            </td>
+            <td className="staff61">
+            <button
+                onClick={() => deleteItem(value.id)} className="staff11"><RiDeleteBin6Line className="staff12"/></button>
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style={{textAlign: "center"}}>1</td>
-            <td></td>
-            <td>John</td>
-            <td>Mark</td>
-            <td>ilmiddinm777@gmail.com</td>
-            <td>com</td>
-            <td style={{width: 60, textAlign: "center"}}><Link to="/staffs/edit"><FaEdit style={{color: "green", border: 2, fontSize: 30}} className='besh'/></Link></td>
-            <td style={{width: 60, textAlign: "center"}}><Link to="/staffs/edit"><AiFillDelete style={{color: "red", border: 2, fontSize: 30}} className='besh'/></Link></td>
-          </tr>          
-        </tbody>
-      </Table>
+        ))}
+      </table>
     </div>
     
   );
 };
 
-export default StaffsView;
+export default Index;

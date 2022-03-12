@@ -30,11 +30,11 @@ import KurslarAdd from "../containers/kurslar/kurslar-add/index.jsx";
 
 import StaffsView from "../containers/staffs/staffs-view/index.jsx";
 import StaffsEdit from "../containers/staffs/staffs-edit/index.jsx";
-import Single from '../containers/staffs/staffs-edit/single/index'
 import StaffsAdd from "../containers/staffs/staffs-add/index.jsx";
 
 import VideoView from "../containers/video/video-view/index.jsx";
 import VideoEdit from "../containers/video/video-edit/index.jsx";
+import VideoEdit1 from "../containers/video/video-edit/index.jsx";
 import VideoAdd from "../containers/video/video-add/index.jsx";
 
 export const routes = [
@@ -175,6 +175,10 @@ export const routes = [
         element: <StaffsEdit />,
       },
       {
+        path: `/staffs/edit/:id`,
+        element: <StaffsEdit/>,
+      },
+      {
         path: "/staffs/add",
         element: <StaffsAdd />,
       },
@@ -195,19 +199,6 @@ export const routes = [
       {
         path: "/video/add",
         element: <VideoAdd />,
-      },
-    ],
-  },
-  {
-    element: <Layout />,
-    children: [
-      {
-        index: true,
-        element: <StaffsEdit />,
-      },
-      {
-        path: "/staffs/edit/one/:id",
-        element: <Single />,
       },
     ],
   },
